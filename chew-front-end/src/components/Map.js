@@ -1,46 +1,39 @@
 import React from 'react'
-import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
+import { GoogleMap, LoadScript } from '@react-google-maps/api';
+import { Marker } from '@react-google-maps/api';
 
 const containerStyle = {
-  width: '800px',
-  height: '800px'
+  width: 'cover',
+  height: '600px'
 };
 
-const center = {
-  lat: 40.63,
-  lng: 89.39
-};
 
-function MyComponent() {
-  const { isLoaded } = useJsApiLoader({
-    id: 'google-map-script',
-    googleMapsApiKey: "AIzaSyDOEfq53Kuj1r0EBax94rTqhwGkNk_jE3U"
-  })
+function MyComponent(props) {
 
-  const [map, setMap] = React.useState(null)
+  let center = props.center
+  let marker1center = props.marker1center
 
-  const onLoad = React.useCallback(function callback(map) {
-    const bounds = new window.google.maps.LatLngBounds();
-    map.fitBounds(bounds);
-    setMap(map)
-  }, [])
 
-  const onUnmount = React.useCallback(function callback(map) {
-    setMap(null)
-  }, [])
-
-  return isLoaded ? (
+  return (
+    <LoadScript
+      googleMapsApiKey="AIzaSyDOEfq53Kuj1r0EBax94rTqhwGkNk_jE3U"
+    >
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={center}
-        zoom={10}
-        onLoad={onLoad}
-        onUnmount={onUnmount}
+        zoom={15}
       >
-        { /* Child components, such as markers, info windows, etc. */ }
+        { /* Child components, such as markers, info windows, etc. */
+          <Marker
+            defaultPosition={marker1center}
+            title="Click to zoom"
+            // onClick={props.onMarkerClick}
+          />
+        }
         <></>
       </GoogleMap>
-  ) : <></>
+    </LoadScript>
+  )
 }
 
 export default React.memo(MyComponent)
