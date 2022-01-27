@@ -4,6 +4,7 @@ import RestaurantDetailsPage from './components/RestaurantDetailsPage'
 import ReviewsBox from './components/ReviewsBox'
 import MyComponent from './components/Map'
 import './App.css';
+import './main.scss'
 
 
 // let baseUrl = "http://opentable.herokuapp.com"
@@ -14,29 +15,45 @@ class App extends Component{
   constructor(props) {
     super(props)
 
-    this.state = {
-      center: {
-        lat: 41.8781,
-        lng: -87.6298
-      },
-      marker1center: {
-        lat: 41.8789,
-        lng: -87.6359
-      }
-    }
-  }
+
 
 
   render(){
     return (
-      <div className="App">
-        <img src="https://i.imgur.com/RpWwxC9.jpg" />
-        <Nav />
-        <h1 className="title">CHEW</h1>
-        <RestaurantDetailsPage />
-        <ReviewsBox />
-        <MyComponent center={this.state.center} marker1center={this.state.marker1center}/>
-      </div>
+
+
+      <section className='more-info'>
+        <div className='feature '>
+          <div className='content'>
+            <p className='title'>Orange Chicken</p>
+            <p className='desc'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Hac habitasse platea dictumst vestibulum. Consectetur purus ut faucibus pulvinar elementum integer enim.</p>
+          </div>
+          <img src='https://images.unsplash.com/photo-1516684902511-1e07238471ad?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjA0fHxhc2lhbiUyMGZvb2R8ZW58MHx8MHx8&auto=format&fit=crop&w=1000&q=60' alt='Food Photo'/>
+        </div>
+
+        <div className='feature left-menu'>
+          <div className='content'>
+            <p className='title'>Sweet Fire Chicken </p>
+            <p className='desc'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Hac habitasse platea dictumst vestibulum. Consectetur purus ut faucibus pulvinar elementum integer enim.</p>
+          </div>
+          <img src='https://images.unsplash.com/photo-1516684902511-1e07238471ad?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjA0fHxhc2lhbiUyMGZvb2R8ZW58MHx8MHx8&auto=format&fit=crop&w=1000&q=60' alt='Food Photo'/>
+        </div>
+
+        <div className='feature '>
+          <div className='content'>
+            <p className='title'>Beef & Brocolli</p>
+            <p className='desc'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Hac habitasse platea dictumst vestibulum. Consectetur purus ut faucibus pulvinar elementum integer enim.</p>
+          </div>
+          <img src='https://images.unsplash.com/photo-1516684902511-1e07238471ad?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjA0fHxhc2lhbiUyMGZvb2R8ZW58MHx8MHx8&auto=format&fit=crop&w=1000&q=60' alt='Food Photo'/>
+        </div>
+      </section>
+
+
+    <div className='reviews'>
+      <ReviewsBox />
+    </div>
+  </div>
+  </>
     )
   }
 }
