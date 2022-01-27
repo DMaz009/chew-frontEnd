@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Nav from './components/Nav'
 import RestaurantDetailsPage from './components/RestaurantDetailsPage'
 import ReviewsBox from './components/ReviewsBox'
+import MyComponent from './components/Map'
 import './App.css';
 
 
@@ -23,6 +24,7 @@ class App extends Component{
         <h1 className="title">CHEW</h1>
         <RestaurantDetailsPage />
         <ReviewsBox />
+        <MyComponent />
       </div>
     )
   }
@@ -30,4 +32,5 @@ class App extends Component{
 
 
 
-export default App;
+
+export default App
