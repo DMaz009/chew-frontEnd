@@ -47,7 +47,7 @@ class App extends Component{
       </section>
 
       <section className='map'>
-        <MyComponent />
+        <MyComponent center={this.state.center} marker1center={this.state.marker1center}/>
       </section>
 
       <div className='details'>
