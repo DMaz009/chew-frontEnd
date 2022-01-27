@@ -13,6 +13,17 @@ import './App.css';
 class App extends Component{
   constructor(props) {
     super(props)
+
+    this.state = {
+      center: {
+        lat: 41.8781,
+        lng: -87.6298
+      },
+      marker1center: {
+        lat: 41.8789,
+        lng: -87.6359
+      }
+    }
   }
 
 
@@ -24,7 +35,7 @@ class App extends Component{
         <h1 className="title">CHEW</h1>
         <RestaurantDetailsPage />
         <ReviewsBox />
-        <MyComponent />
+        <MyComponent center={this.state.center} marker1center={this.state.marker1center}/>
       </div>
     )
   }
