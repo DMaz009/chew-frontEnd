@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+require('dotenv').config()
 import Nav from './components/Nav'
 import RestaurantDetailsPage from './components/RestaurantDetailsPage'
 import ReviewsBox from './components/ReviewsBox'
@@ -7,11 +8,7 @@ import Restaurants from './components/RestaurantsList'
 import './App.css';
 import './main.scss'
 
-
-// let baseUrl = "http://opentable.herokuapp.com"
-// let baseUrl = "https://maps.googleapis.com/maps/api/js?key=AIzaSyDwOPey_5Xp_w939z6sYtwUYfTxxjNqUwY&callback=InitMap"
-
-
+let baseUrl = process.env.REACT_APP_BASEURL
 
 
 class App extends Component{
