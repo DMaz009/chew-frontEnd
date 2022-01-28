@@ -48,7 +48,7 @@ class App extends Component{
 // "https://www.google.com/maps/embed/v1/place?key=AIzaSyDOEfq53Kuj1r0EBax94rTqhwGkNk_jE3U&q=Eiffel+Tower,Paris+France"
 
 
-
+// note
 
 
   // FUNCTIONS
