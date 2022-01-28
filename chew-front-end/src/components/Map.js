@@ -1,6 +1,7 @@
 import React from 'react'
 import { GoogleMap, LoadScript } from '@react-google-maps/api';
 import { Marker } from '@react-google-maps/api';
+import SearchLocationInput from './SearchLocationInput'
 
 const containerStyle = {
   width: 'cover',
@@ -24,11 +25,19 @@ function MyComponent(props) {
         zoom={15}
       >
         { /* Child components, such as markers, info windows, etc. */
-          <Marker
-            defaultPosition={marker1center}
-            title="Click to zoom"
-            // onClick={props.onMarkerClick}
-          />
+          <div>
+
+            <div>
+              <Marker
+                defaultPosition={marker1center}
+                title="Click to zoom"
+                // onClick={props.onMarkerClick}
+              />
+            </div>
+
+
+
+          </div>
         }
         <></>
       </GoogleMap>
