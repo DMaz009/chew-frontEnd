@@ -1,10 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&family=Raleway:wght@100;500;700&display=swap');
 
+html {
+  scroll-behavior: smooth;
+}
+
+
 body{
   background-color: lavender;
   margin: 1.5em;
   font-family: 'Poppins', sans-serif;
   color: white;
+
 
     h1{
       font-size: 3rem;
@@ -26,23 +32,31 @@ body{
 }
 .logo{
   font-weight: bold;
-  color: lavender;
+
 }
 
 .hero-img{
-  position: absolute;
+  background: url('https://images.unsplash.com/photo-1526318896980-cf78c088247c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8YXNpYW4lMjBmb29kfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=1000&q=60');
+  position: fixed;
   top: 0;
   left: 0;
-  background: url('https://images.unsplash.com/photo-1526318896980-cf78c088247c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8YXNpYW4lMjBmb29kfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=1000&q=60');
-  background-position-y: 30%;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   z-index: -1;
   background-size: cover;
+
+  background-repeat: no-repeat;
+  background-position: center center;
+  display: block;
+
+
+
+
 }
 
 .hero{
-  height: 50em;
+  height: 100vh;
+
 }
 
 
@@ -53,8 +67,8 @@ img{
 .map{
   background-color: goldenRod;
   width: 100%;
-  height: 70em;
-
+  height: 600px;
+  margin-bottom: 50px;
 
 
 
@@ -85,7 +99,14 @@ a{
 }
 
 .more-info{
-  background-color: lightblue;
+  // background-color: lightblue;
+  background: rgba( 255, 255, 255, 0.25 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 8px );
+  -webkit-backdrop-filter: blur( 8px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  margin-bottom: 3em;
 
   img{
     width: 100%;
@@ -106,8 +127,16 @@ a{
 
 
 .details{
-  background-color: CornflowerBlue;
+  // background-color: lightblue;
   text-align: left;
+  padding: 60px;
+  margin-bottom: 3em;
+  background: rgba( 255, 255, 255, 0.25 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 8px );
+  -webkit-backdrop-filter: blur( 8px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
 
 .reviews{
@@ -121,6 +150,7 @@ a{
       position: absolute;
       top: 15rem;
       left: 12rem;
+      color: white;
     }
 
     .hero-subhead{
@@ -128,44 +158,74 @@ a{
       top: 20rem;
       left: 12rem;
       font-size: 1.6rem;
+      color: white;
 
 
     }
+
     .hero-svg{
       display:none;
-
-
     }
+
+
 
 }
 
 .feature{
   display: grid;
   grid-template-columns: repeat(2, auto);
-  margin-bottom: 4em;
-  margin-top: 4em;
-  gap: 3em;
+  margin-bottom: 3em;
 
-  img{
-    width: 25em;
-    border-radius: 15px;
-  }
 
-  .content{
-    text-align: right;
-    width: 25em;
-    text-align: left;
 
-  }
 
-  .desc{
-    text-align: left;
-  }
-  .left-menu{
-    grid-template-areas:
-    'left right';
-  }
+    img{
+      width: 50%;
+      border-radius:15px 50px;
+      margin: 40px;
+      border: 3px solid white;
+      // margin-left: auto;
+      // margin-right: auto;
 
+
+    }
+
+    .content{
+      text-align: right;
+      width: 50%;
+      text-align: left;
+      margin-left: 70px;
+      margin-top: 40px;
+
+
+    }
+
+    .desc{
+      text-align: left;
+    }
+
+    .left-menu{
+      grid-template-areas:
+      'left right';
+    }
+
+
+
+}
+
+.reviews{
+  display: flex;
+  list-style: none;
+  justify-content: center;
+  color: black;
+  padding: 20px;
+
+  background: rgba( 255, 255, 255, 0.45 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 9.5px );
+-webkit-backdrop-filter: blur( 9.5px );
+border-radius: 10px;
+border: 1px solid rgba( 255, 255, 255, 0.18 );
 
 
 }
@@ -180,8 +240,15 @@ a{
 
 }
 
-@media only screen and (min-wdith: 920px) {
+.reviews{
+  display: flex;
+  list-style: none;
+  justify-content: center;
 
 
+}
+
+// apply settings for glassmorphism here
+.glass{
 
 }

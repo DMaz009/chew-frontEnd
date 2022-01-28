@@ -97,6 +97,7 @@ class App extends Component{
       <Nav />
 
     <section className='hero'>
+      <img className='hero-img' src='https://images.unsplash.com/photo-1526318896980-cf78c088247c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8YXNpYW4lMjBmb29kfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=1000&q=60'/>
       <h1 className="hero-title">CHEW</h1>
       <p className='hero-subhead'>
         Check out Asian Restarants below!
@@ -124,14 +125,17 @@ class App extends Component{
 
 
       <section className='more-info'>
-      <h1>Menu Items</h1>
+      <h1>Menu Items:</h1>
       <hr/>
+      <div className='glass'>
+
         <div className='feature '>
+
           <div className='content'>
             <p className='title'>Orange Chicken</p>
             <p className='desc'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Hac habitasse platea dictumst vestibulum. Consectetur purus ut faucibus pulvinar elementum integer enim.</p>
           </div>
-          <img src='https://images.unsplash.com/photo-1516684902511-1e07238471ad?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjA0fHxhc2lhbiUyMGZvb2R8ZW58MHx8MHx8&auto=format&fit=crop&w=1000&q=60' alt='Food Photo'/>
+          <img src='https://images.unsplash.com/photo-1503764654157-72d979d9af2f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8YXNpYW4lMjBmb29kfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=1400&q=60' alt='Food Photo'/>
         </div>
 
         <div className='feature left-menu'>
@@ -139,7 +143,7 @@ class App extends Component{
             <p className='title'>Sweet Fire Chicken </p>
             <p className='desc'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Hac habitasse platea dictumst vestibulum. Consectetur purus ut faucibus pulvinar elementum integer enim.</p>
           </div>
-          <img src='https://images.unsplash.com/photo-1516684902511-1e07238471ad?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjA0fHxhc2lhbiUyMGZvb2R8ZW58MHx8MHx8&auto=format&fit=crop&w=1000&q=60' alt='Food Photo'/>
+          <img src='https://images.unsplash.com/photo-1503764654157-72d979d9af2f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8YXNpYW4lMjBmb29kfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=1400&q=60' alt='Food Photo'/>
         </div>
 
         <div className='feature '>
@@ -147,11 +151,13 @@ class App extends Component{
             <p className='title'>Beef & Brocolli</p>
             <p className='desc'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Hac habitasse platea dictumst vestibulum. Consectetur purus ut faucibus pulvinar elementum integer enim.</p>
           </div>
-          <img src='https://images.unsplash.com/photo-1516684902511-1e07238471ad?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjA0fHxhc2lhbiUyMGZvb2R8ZW58MHx8MHx8&auto=format&fit=crop&w=1000&q=60' alt='Food Photo'/>
+          <img src='https://images.unsplash.com/photo-1503764654157-72d979d9af2f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8YXNpYW4lMjBmb29kfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=1400&q=60' alt='Food Photo'/>
+        </div>
         </div>
       </section>
 
-    <div className='reviews' id="reservation">
+    <div className='reviews' id='reservation'>
+
       <ReviewsBox />
     </div>
     </div>
