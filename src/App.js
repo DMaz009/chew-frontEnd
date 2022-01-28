@@ -5,6 +5,7 @@ import RestaurantDetailsPage from './components/RestaurantDetailsPage'
 import ReviewsBox from './components/ReviewsBox'
 import MyComponent from './components/Map'
 import Restaurants from './components/RestaurantsList'
+import ReservationForm from './components/ReservationForm'
 import './App.css';
 import './main.scss'
 
@@ -155,7 +156,7 @@ class App extends Component{
 
     <div className='reviews' id='reservation'>
 
-      <ReviewsBox />
+    <ReservationForm className="reviews" />
     </div>
     </div>
       )
