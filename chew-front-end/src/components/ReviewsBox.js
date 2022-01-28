@@ -4,7 +4,7 @@ import ReservationForm from './ReservationForm'
 const ReviewsBox = () => {
 
   return (
-      <div>
+      <div className='reviews'>
         <ul>
             <li>Review 1</li>
             <ReservationForm />
