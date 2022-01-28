@@ -3,7 +3,7 @@ import React from 'react'
 const ReviewsBox = () => {
 
   return (
-      <div>
+      <div className='reviews'>
         <ul>
             <li>Review 1</li>
             <li>Review 2</li>

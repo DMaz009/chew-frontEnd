@@ -7,7 +7,7 @@ return (
   <a className='logo' href="#home"><li> CHEW</li></a>
   <a href='#map'><li>Find Restaurant Near You 📍</li></a>
   <a href='#restaurant'><li>Restaurant Details 📚</li></a>
-  <a href='reservation'><li>Make a Reservation 🎉</li></a>
+  <a href='#reservation'><li>Make a Reservation 🎉</li></a>
 </ul>
 
 <svg className='close' width="46" height="32" viewBox="0 0 46 32" fill="none" xmlns="http://www.w3.org/2000/svg">
