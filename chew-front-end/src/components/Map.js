@@ -13,7 +13,7 @@ function MyComponent(props) {
 
   let center = props.center
   let marker1center = props.marker1center
-
+//
 
   return (
     <LoadScript
