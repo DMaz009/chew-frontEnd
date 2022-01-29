@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-require('dotenv').config()
+// require('dotenv').config()
 import Nav from './components/Nav'
 import RestaurantDetailsPage from './components/RestaurantDetailsPage'
 import ReviewsBox from './components/ReviewsBox'
