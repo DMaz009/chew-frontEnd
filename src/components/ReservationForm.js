@@ -22,7 +22,7 @@ export default class ReservationForm extends Component {
   }
 
   getReservations = () => {
-    fetch(basUrl + '/chew', {
+    fetch(baseUrl + '/chew', {
       credentials: 'include'
     })
     .then(res => {
@@ -32,7 +32,7 @@ export default class ReservationForm extends Component {
         return []
       }
     }).then(data => {
-      this.setState( reservations: data)
+      this.setState({reservations: data})
     })
   }
 
