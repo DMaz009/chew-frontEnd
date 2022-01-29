@@ -6,23 +6,33 @@ class Restaurants extends Component {
 
 
     this.state = {
-      restaurants: props.restaurants
+      restaurants: props.restaurants,
+      baseURL: props.baseURL,
+      apiKey: props.apiKey,
+      restaurantName: ''
     }
 
   }
 
+
   handleClick = (e) => {
     e.preventDefault()
-    console.log("i'm working!!");
+    console.log(e.nativeEvent.srcElement);
+    this.setState({
+      restaurantName: e.nativeEvent.srcElement
+    })
   }
+
+
 
 
   render() {
     return (
       <div className="restaurant-list">
+
     			{ this.props.restaurants.map((data) => (
     				<form onClick={this.handleClick} className="data-preview" key={data.place_id}>
-    					<h5 className="data-name">{data.name}</h5>
+    					<h5 className="dataName">{data.name}</h5>
     					<p className="data-rating">Rating: {data.rating} / 5</p>
               <p className="data-priceLevel">Price Level: {data.price_level} / 5</p>
     				</form>

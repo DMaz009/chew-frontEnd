@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
-// require('dotenv').config()
 import Nav from './components/Nav'
 import RestaurantDetailsPage from './components/RestaurantDetailsPage'
 import ReviewsBox from './components/ReviewsBox'
 import MyComponent from './components/Map'
 import Restaurants from './components/RestaurantsList'
 import ReservationForm from './components/ReservationForm'
+import AllReservations from './components/AllReservations'
 import './App.css';
 import './main.scss'
 
@@ -28,7 +28,8 @@ class App extends Component{
       },
       baseURL: 'https://maps.googleapis.com/maps/api/place/textsearch/json?query=asian&',
       apiKey: 'key=AIzaSyDOEfq53Kuj1r0EBax94rTqhwGkNk_jE3U',
-      searchURL: ''
+      searchURL: '',
+      reservations: []
       // baseURL: 'https://api.documenu.com/v2/restaurants/search/geo?',
       // lat: 'lat=',
       // latCordinates: 41.8789,
@@ -78,6 +79,14 @@ class App extends Component{
   //   }).then(data => {
   //     console.log(data)
   //     this.setState({restaurants: data})
+  //   })
+  // }
+
+  // handleClick = (e) => {
+  //   e.preventDefault()
+  //   console.log(e.nativeEvent.srcElement);
+  //   this.setState({
+  //     restaurantName: e.nativeEvent.srcElement
   //   })
   // }
 
@@ -155,8 +164,9 @@ class App extends Component{
 
     <div className='reviews' id='reservation'>
 
-    <ReservationForm className="reviews" restaurants={this.state.restaurants} />
+    <ReservationForm className="reviews" restaurants={this.state.restaurants} baseURL={this.state.baseURL} apiKey={this.state.apiKey} />
     </div>
+    <AllReservations />
     </div>
       )
     }
