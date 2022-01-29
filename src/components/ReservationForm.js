@@ -33,7 +33,7 @@ export default class ReservationForm extends Component {
         return []
       }
     }).then(data => {
-      this.setState( {reservations: data})
+      this.setState({reservations: data})
     })
   }
 
