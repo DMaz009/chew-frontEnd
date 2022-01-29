@@ -18,7 +18,6 @@ export default class ReservationForm extends Component {
       availability: '',
       reservationToBeEdited: {},
       modalOpen: false
-
     }
   }
 
@@ -75,7 +74,7 @@ export default class ReservationForm extends Component {
     console.log(this.state.name)
     return (
       <form onSubmit={this.handleSubmit}>
-        <h1> {this.props.restaurants} </h1>
+        <h1></h1>
         <label htmlFor='name'>Name: </label>
         <input type='text' id='name' name='name'
           onChange={ (event) => this.handleChange(event)}
