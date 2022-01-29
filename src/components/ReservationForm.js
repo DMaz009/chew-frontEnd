@@ -10,7 +10,7 @@ export default class ReservationForm extends Component {
       name: '',
       reservations: [],
       guests: '',
-      restaurant: '',
+      restaurant: this.props.restaurant,
       location: '',
       date: '',
       time: '',
@@ -32,14 +32,27 @@ export default class ReservationForm extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault()
+    fetch(baseUrl + '/chew', {
+      method: 'POST',
+      body: JSON.stringify( {
+        name: this.state.name.value,
+        guests: this.state.guests.value}),
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      credentials: 'include'
+    }).then(res => {
+      return res.json()
+    }).then(data => {
+      console.log(data);
+    })
 
   }
 
   handleChange = (event) => {
-    console.log(event.target.value)
+    // console.log(event.target.value)
     this.setState({
-      name: event.target.value,
-      guests: event.target.value
+      [event.target.name]: event.target.value
     })
   }
 
@@ -47,6 +60,7 @@ export default class ReservationForm extends Component {
     console.log(this.state.name)
     return (
       <form onSubmit={this.handleSubmit}>
+        <h1> {this.props.restaurant} </h1>
         <label htmlFor='name'>Name: </label>
         <input type='text' id='name' name='name'
           onChange={ (event) => this.handleChange(event)}
