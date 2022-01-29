@@ -10,7 +10,7 @@ export default class ReservationForm extends Component {
       name: '',
       reservations: [],
       guests: '',
-      restaurant: this.props.restaurant,
+      restaurants: props.restaurants,
       location: '',
       date: '',
       time: '',
@@ -21,6 +21,20 @@ export default class ReservationForm extends Component {
     }
   }
 
+  getReservations = () => {
+    fetch(basUrl + '/chew', {
+      credentials: 'include'
+    })
+    .then(res => {
+      if(res.status === 200) {
+        return res.json()
+      } else {
+        return []
+      }
+    }).then(data => {
+      this.setState( reservations: data)
+    })
+  }
 
   addReservation = (newReservation) => {
     const copyReservations = [...this.state.reservations]
@@ -60,7 +74,7 @@ export default class ReservationForm extends Component {
     console.log(this.state.name)
     return (
       <form onSubmit={this.handleSubmit}>
-        <h1> {this.props.restaurant} </h1>
+        <h1> {this.props.restaurants} </h1>
         <label htmlFor='name'>Name: </label>
         <input type='text' id='name' name='name'
           onChange={ (event) => this.handleChange(event)}
