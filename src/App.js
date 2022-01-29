@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-require('dotenv').config()
+// require('dotenv').config()
 import Nav from './components/Nav'
 import RestaurantDetailsPage from './components/RestaurantDetailsPage'
 import ReviewsBox from './components/ReviewsBox'
@@ -155,7 +155,7 @@ class App extends Component{
 
     <div className='reviews' id='reservation'>
 
-    <ReservationForm className="reviews" restaurant={this.state.restaurants} />
+    <ReservationForm className="reviews" restaurants={this.state.restaurants} />
     </div>
     </div>
       )
