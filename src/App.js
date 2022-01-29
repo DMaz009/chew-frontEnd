@@ -86,7 +86,6 @@ class App extends Component{
 
 
 
-
   componentDidMount(){
     this.getRestaurants()
   }
@@ -159,7 +158,7 @@ class App extends Component{
 
     <div className='reviews' id='reservation'>
 
-    <ReservationForm className="reviews" />
+    <ReservationForm className="reviews" restaurant={this.state.restaurants} />
     </div>
     </div>
       )

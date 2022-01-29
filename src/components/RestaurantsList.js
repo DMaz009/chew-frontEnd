@@ -1,23 +1,35 @@
-import React from 'react'
+import React, { Component } from 'react'
 
-const Restaurants = (props) => {
+class Restaurants extends Component {
+  constructor(props) {
+    super(props)
 
-let restaurants = props.restaurants
+
+    this.state = {
+      restaurants: props.restaurants
+    }
+
+  }
+
+  handleClick = (e) => {
+    e.preventDefault()
+    console.log("i'm working!!");
+  }
 
 
-  return (
-
-    <div className="restaurant-list">
-  			{ restaurants.map((data) => (
-  				<div className="data-preview" key={data.place_id}>
-  					<h4>{data.name}</h4>
-  					<p>Rating: {data.rating} / 5</p>
-            <p>Price Level: {data.price_level} / 5</p>
-  				</div>
-  			))}
-  		</div>
-
-  )
+  render() {
+    return (
+      <div className="restaurant-list">
+    			{ this.props.restaurants.map((data) => (
+    				<form onClick={this.handleClick} className="data-preview" key={data.place_id}>
+    					<h5 className="data-name">{data.name}</h5>
+    					<p className="data-rating">Rating: {data.rating} / 5</p>
+              <p className="data-priceLevel">Price Level: {data.price_level} / 5</p>
+    				</form>
+    			)) }
+    	</div>
+    )
+  }
 }
 
 
