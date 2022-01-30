@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import AllReservations from './AllReservations'
 
 let baseUrl = "http://localhost:3000"
 //remove this comment
@@ -9,7 +10,7 @@ export default class ReservationForm extends Component {
 
     this.state = {
       name: '',
-      reservations: [''],
+      reservations: [],
       guests: '',
       restaurants: props.restaurants,
       location: '',
@@ -22,9 +23,7 @@ export default class ReservationForm extends Component {
   }
 
   getReservations = () => {
-    fetch(baseUrl + '/chew', {
-      credentials: 'include'
-    })
+    fetch(baseUrl + '/chew')
     .then(res => {
       if(res.status === 200) {
         return res.json()
@@ -99,10 +98,15 @@ export default class ReservationForm extends Component {
       headers: {
         'Content-Type': 'application/json'
       },
-    }).then(res => { console.log(res); return res.text()} )
-    .then(data => {
-      console.log(data);
+    }).then(res => { console.log(res); return res.json()} )
+    .then(json => {
+      this.getReservations(json)
     })
+    .then(
+      this.setState({
+      name: '',
+      guests: ''
+    }))
   }
 
   handleChange = (event) => {
@@ -115,21 +119,26 @@ export default class ReservationForm extends Component {
   render() {
     // console.log(this.state.name)
     return (
-      <form onSubmit={this.handleSubmit}>
-        <h1></h1>
-        <label htmlFor='name'>Name: </label>
-        <input type='text' id='name' name='name'
-          onChange={ (event) => this.handleChange(event)}
-          value={this.state.name}
-          />
-          <label htmlFor='guests'>Guests: </label>
-          <input type='number' id='guests' name='guests'
+      <div>
+        {this.getReservations()}
+        <form onSubmit={this.handleSubmit}>
+          <h1>New Reservation</h1>
+          <label htmlFor='name'>Name: </label>
+          <input type='text' id='name' name='name'
             onChange={ (event) => this.handleChange(event)}
-            value={this.state.guests}
+            value={this.state.name}
             />
-
-          <input type='submit' value='Add Reservation' />
-      </form>
+            <hr />
+            <label htmlFor='guests'>Guests: </label>
+            <input type='number' id='guests' name='guests'
+              onChange={ (event) => this.handleChange(event)}
+              value={this.state.guests}
+              />
+            <hr />
+            <input type='submit' value='Add Reservation' />
+        </form>
+        <AllReservations reservations={this.state.reservations}/>
+      </div>
     )
 
   }

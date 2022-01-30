@@ -166,7 +166,6 @@ class App extends Component{
 
     <ReservationForm className="reviews" restaurants={this.state.restaurants} baseURL={this.state.baseURL} apiKey={this.state.apiKey} />
     </div>
-    <AllReservations />
     </div>
       )
     }

@@ -37,6 +37,7 @@ class Restaurants extends Component {
               <p className="data-priceLevel">Price Level: {data.price_level} / 5</p>
     				</form>
     			)) }
+
     	</div>
     )
   }
