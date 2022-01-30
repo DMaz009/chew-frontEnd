@@ -9,7 +9,7 @@ import AllReservations from './components/AllReservations'
 import './App.css';
 import './main.scss'
 
-let baseUrl = process.env.REACT_APP_BASEURL
+let baseUrl = "http://localhost:3000"
 //comment
 
 class App extends Component{
