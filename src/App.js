@@ -66,21 +66,21 @@ class App extends Component{
   }
 
 
-  // getRestaurants = () => {
-  //   fetch(this.state.baseUrl + this.state.apiKey, {
-  //     credentials: "include"
-  //   })
-  //   .then(res => {
-  //     if (res.status === 200) {
-  //       return res.json()
-  //     } else {
-  //       return []
-  //     }
-  //   }).then(data => {
-  //     console.log(data)
-  //     this.setState({restaurants: data})
-  //   })
-  // }
+  getRestaurants = () => {
+    fetch('http://localhost:3000/google', {
+      credentials: "include"
+    })
+    .then(res => {
+      if (res.status === 200) {
+        return res.json()
+      } else {
+        return []
+      }
+    }).then(data => {
+      console.log(data)
+      // this.setState({restaurants: data})
+    })
+  }
 
   // handleClick = (e) => {
   //   e.preventDefault()

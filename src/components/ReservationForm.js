@@ -90,22 +90,19 @@ export default class ReservationForm extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault()
+    console.log(this.state);
     fetch(baseUrl + '/chew', {
       method: 'POST',
-      mode: 'no-cors',
       body: JSON.stringify( {
         name: this.state.name,
         guests: this.state.guests}),
       headers: {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*'
+        'Content-Type': 'application/json'
       },
-      credentials: 'include'
     }).then(res => { console.log(res); return res.text()} )
     .then(data => {
       console.log(data);
     })
-
   }
 
   handleChange = (event) => {
