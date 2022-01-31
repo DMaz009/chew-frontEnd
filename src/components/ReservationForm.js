@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import AllReservations from './AllReservations'
 
-let baseUrl = "http://localhost:3000"
+let baseUrl = "https://chew-backend.herokuapp.com"
 //remove this comment
 
 export default class ReservationForm extends Component {
