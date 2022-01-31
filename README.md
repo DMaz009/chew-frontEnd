@@ -5,20 +5,19 @@ CHEW allows you to select a website and have the restaurant details and menu pop
 
 We will be specifically using asian themed restaurants for the project.
 
-## MOTIVATION
- We chose this project because we would be could later expand the application and possibly sell it to small buisness'.
-
-
-
-## BUILD STATUS
-Wait until sunday!
-<!-- CODE STYLE  -->
 
 ## Wireframes
+![Screen Shot 2022-01-31 at 8 13 59 AM](https://user-images.githubusercontent.com/24789142/151809180-9e90dec2-1389-466f-a8f9-662a1422b267.png)
 
-Show Screenshots for the app/ Video of you using the app!
+![Screen Shot 2022-01-31 at 8 14 09 AM](https://user-images.githubusercontent.com/24789142/151809191-642af9cb-9a8f-4340-922c-d1e531328320.png)
+
+![Screen Shot 2022-01-31 at 8 14 14 AM](https://user-images.githubusercontent.com/24789142/151809204-1210dddc-73fe-41a6-ad3c-088d2d32e29d.png)
+
+![Screen Shot 2022-01-31 at 8 14 19 AM](https://user-images.githubusercontent.com/24789142/151809213-a9e94627-aa21-4956-b72d-7a2123be0634.png)
 
 ## User Stories
+
+<img width="348" alt="Screen Shot 2022-01-30 at 5 29 42 PM" src="https://user-images.githubusercontent.com/24789142/151808973-6f467a9d-5bc5-424a-b318-dd216a2fee07.png">
 
 
 ## TECH/FRAMEWORKS USED
@@ -31,8 +30,7 @@ Show Screenshots for the app/ Video of you using the app!
   REACT
 
 ## FEATURES
-The only feature that we currrently have is being able to add a reservation for you and a couple guests on the restaurant.
-
+We have created a feature on our app that allows you to make a reservation to a restarant for you and some friends.
 
 ## HOW TO USE
 
