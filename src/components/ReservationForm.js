@@ -30,9 +30,10 @@ export default class ReservationForm extends Component {
       if(res.status === 200) {
         return res.json()
       } else {
-        return []
+        console.log(res.status)
       }
     }).then(data => {
+      console.log(data)
       this.setState({reservations: data})
     })
   }
