@@ -26,10 +26,8 @@ class App extends Component{
         lat: 41.8789,
         lng: -87.6359
       },
-      baseURL: 'https://maps.googleapis.com/maps/api/place/textsearch/json?query=asian&',
-      apiKey: 'key=AIzaSyDOEfq53Kuj1r0EBax94rTqhwGkNk_jE3U',
       searchURL: '',
-      reservations: []
+      reservations: [],
       // baseURL: 'https://api.documenu.com/v2/restaurants/search/geo?',
       // lat: 'lat=',
       // latCordinates: 41.8789,
@@ -38,13 +36,11 @@ class App extends Component{
       // lonCordinates: -87.6359,
       // distance: '&distance=1',
       // cuisine: '&cuisine=Asian&',
-      // apiKey: 'key=kb7a36fd71c5dcb1eadc5f9b365af20a6',
       // searchURL: ''
     }
   }
 
 
-// "https://www.google.com/maps/embed/v1/place?key=AIzaSyDOEfq53Kuj1r0EBax94rTqhwGkNk_jE3U&q=Eiffel+Tower,Paris+France"
 
 
 // note
@@ -78,7 +74,10 @@ class App extends Component{
       }
     }).then(data => {
       console.log(data)
-      // this.setState({restaurants: data})
+      this.setState({
+        restaurants: data,
+        restaurantName: ''
+      })
     })
   }
 
@@ -89,6 +88,15 @@ class App extends Component{
   //     restaurantName: e.nativeEvent.srcElement
   //   })
   // }
+
+
+  handleClick = (data) => {
+    // data.preventDefault()
+    this.setState({
+      restaurantName: data.name
+    })
+    console.log(data.name);
+  }
 
 
 
@@ -114,7 +122,7 @@ class App extends Component{
       </svg>
 
       <div>
-        {this.state.restaurants && <Restaurants restaurants={this.state.restaurants} /> }
+        {this.state.restaurants && <Restaurants restaurants={this.state.restaurants} restaurantName={this.state.restaurantName} handleClick={this.state.handleClick}/>}
       </div>
 
       </section>
