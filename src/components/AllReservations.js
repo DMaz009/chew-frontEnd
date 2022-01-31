@@ -149,7 +149,7 @@ class AllReservations extends Component {
                <label>Name: </label>
                <input name="name" value={this.props.name}
                  onChange={this.handleChange} />
-               <label>Name: </label>
+               <label>Guests: </label>
                <input name="guests" value={this.props.guests}
                  onChange={this.handleChange} />
 
