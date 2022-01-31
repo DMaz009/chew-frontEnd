@@ -79,7 +79,8 @@ class AllReservations extends Component {
   //   }
 
 
-    handleSubmit = (reservation) => {
+    handleSubmit = (e, reservation) => {
+      e.preventDefault()
       console.log(reservation)
       fetch(baseUrl + '/chew/' + reservation._id, {
         method: 'PUT',
@@ -108,6 +109,7 @@ class AllReservations extends Component {
 
 
     handleChange = (e) => {
+      console.log(e)
       this.setState({
         [e.target.name]: e.target.value,
         // this.state.name: e.target.value
