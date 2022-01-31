@@ -28,6 +28,9 @@ We will be specifically using asian themed restaurants for the project.
   HEROKU
   MONGOOSE
   REACT
+  EXPRESS 
+  ATLAS
+  MONGODB
 
 ## FEATURES
 We have created a feature on our app that allows you to make a reservation to a restarant for you and some friends.
@@ -39,5 +42,16 @@ You can use this app by scrolling through the website and viewing the menu items
 
 ## CODE EXAMPLES
 
+<img width="359" alt="Screen Shot 2022-01-31 at 10 58 27 AM" src="https://user-images.githubusercontent.com/24789142/151838326-c847e369-f583-454b-8913-1fe66b5413a8.png">
+
+
+
+
+
 ## CREDITS
-Links to repos and inspiration for the project.
+
+### Heroku Deployment Link:
+https://chew-frontend.herokuapp.com/
+
+### Backend Link:
+https://chew-backend.herokuapp.com/
