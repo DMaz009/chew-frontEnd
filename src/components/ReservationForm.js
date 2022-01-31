@@ -19,7 +19,6 @@ export default class ReservationForm extends Component {
       availability: '',
       reservationToBeEdited: {},
       modalOpen: false,
-      reservationToBeEdited: {}
 
     }
   }
@@ -47,28 +46,28 @@ export default class ReservationForm extends Component {
     })
   }
 
-  updateReservation = (reservation) => {
-    console.log(reservation)
-    fetch(baseUrl + '/chew/' + reservation._id, {
-      method: 'PUT',
-      body: JSON.stringify({updated: !reservation.updated}),
-      headers: {
-        'Content-Type': 'application/json'
-      },
-    }).then(res => res.json())
-    .then(resJson => {
-      console.log(resJson)
-      const copyReservations = [...this.state.holidays]
-      const findIndex = this.state.reservations.findIndex(
-        reservation => reservation._id === resJson.data._id)
-        copyReservations[findIndex].updated = resJson.data.updated
-        console.log(copyReservations[findIndex])
-
-        this.setState({
-          reservations: copyReservations
-        })
-    })
-  }
+  // updateReservation = (reservation) => {
+  //   console.log(reservation)
+  //   fetch(baseUrl + '/chew/' + reservation._id, {
+  //     method: 'PUT',
+  //     body: JSON.stringify({updated: !reservation.updated}),
+  //     headers: {
+  //       'Content-Type': 'application/json'
+  //     },
+  //   }).then(res => res.json())
+  //   .then(resJson => {
+  //     console.log(resJson)
+  //     const copyReservations = [...this.state.holidays]
+  //     const findIndex = this.state.reservations.findIndex(
+  //       reservation => reservation._id === resJson.data._id)
+  //       copyReservations[findIndex].updated = resJson.data.updated
+  //       console.log(copyReservations[findIndex])
+  //
+  //       this.setState({
+  //         reservations: copyReservations
+  //       })
+  //   })
+  // }
 
 
 

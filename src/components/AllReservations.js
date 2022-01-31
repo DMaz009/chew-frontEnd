@@ -145,10 +145,10 @@ class AllReservations extends Component {
              this.state.modalOpen &&
              <form onSubmit={this.handleSubmit}>
                <label>Name: </label>
-               <input name="name" value={this.props.name}
+               <input name="name" value={this.state.reservationToBeEdited.name}
                  onChange={this.handleChange} />
                <label>Name: </label>
-               <input name="guests" value={this.props.guests}
+               <input name="guests" value={this.state.reservationToBeEdited.guests}
                  onChange={this.handleChange} />
 
                <input type="submit" value="Submit"/>
