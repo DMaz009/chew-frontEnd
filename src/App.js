@@ -9,7 +9,7 @@ import AllReservations from './components/AllReservations'
 import './App.css';
 import './main.scss'
 
-let baseUrl = "http://localhost:3000"
+let baseUrl = "https://chew-backend.herokuapp.com"
 //comment
 
 class App extends Component{
@@ -50,7 +50,7 @@ class App extends Component{
 
   getRestaurants = () => {
     this.setState({
-      searchURL: this.state.baseURL + this.state.apiKey
+      searchURL: this.state.baseUrl + this.state.apiKey
     }, () => {
       fetch(this.state.searchURL)
       .then(response => {return response.json()})
