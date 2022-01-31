@@ -47,7 +47,6 @@ class AllReservations extends Component {
       guests: reservation.guests,
       reservationToBeEdited: reservation
     })
-    console.log(this.state.reservationToBeEdited);
   }
 
 
@@ -109,7 +108,7 @@ class AllReservations extends Component {
 
 
     handleChange = (e) => {
-      console.log(e)
+      console.log(e.target.name)
       this.setState({
         [e.target.name]: e.target.value,
         // this.state.name: e.target.value
@@ -147,10 +146,10 @@ class AllReservations extends Component {
              this.state.modalOpen &&
              <form onSubmit={this.handleSubmit}>
                <label>Name: </label>
-               <input name="name" value={this.state.reservationToBeEdited.name}
+               <input name="modal-name" value={this.state.reservationToBeEdited.name}
                  onChange={this.handleChange} />
                <label>Name: </label>
-               <input name="guests" value={this.state.reservationToBeEdited.guests}
+               <input name="modal-guests" value={this.state.reservationToBeEdited.guests}
                  onChange={this.handleChange} />
 
                <input type="submit" value="Submit"/>
