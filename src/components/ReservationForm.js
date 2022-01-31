@@ -77,7 +77,7 @@ export default class ReservationForm extends Component {
     console.log(this.state);
     fetch(baseUrl + '/chew', {
       method: 'POST',
-      body: JSON.stringify( {
+      body: JSON.stringify({
         name: this.state.name,
         guests: this.state.guests}),
       headers: {
@@ -85,7 +85,7 @@ export default class ReservationForm extends Component {
       },
     }).then(res => { console.log(res); return res.json()} )
     .then(json => {
-      this.getReservations(json)
+      this.getReservations()
     })
     .then(
       this.setState({
