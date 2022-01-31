@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import AllReservations from './AllReservations'
 
-let baseUrl = "http://localhost:3000"
+let baseUrl = "https://chew-backend.herokuapp.com"
 //remove this comment
 
 export default class ReservationForm extends Component {
@@ -19,7 +19,6 @@ export default class ReservationForm extends Component {
       availability: '',
       reservationToBeEdited: {},
       modalOpen: false,
-      reservationToBeEdited: {}
 
     }
   }
@@ -30,9 +29,10 @@ export default class ReservationForm extends Component {
       if(res.status === 200) {
         return res.json()
       } else {
-        return []
+        console.log(res.status)
       }
     }).then(data => {
+      console.log(data)
       this.setState({reservations: data})
     })
   }
@@ -46,29 +46,28 @@ export default class ReservationForm extends Component {
     })
   }
 
-  updateReservation = (reservation) => {
-    console.log(reservation)
-    fetch(baseUrl + '/chew/' + reservation._id, {
-      method: 'PUT',
-      body: JSON.stringify({updated: !reservation.updated}),
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      credentials: 'include'
-    }).then(res => res.json())
-    .then(resJson => {
-      console.log(resJson)
-      const copyReservations = [...this.state.holidays]
-      const findIndex = this.state.reservations.findIndex(
-        reservation => reservation._id === resJson.data._id)
-        copyReservations[findIndex].updated = resJson.data.updated
-        console.log(copyReservations[findIndex])
-
-        this.setState({
-          reservations: copyReservations
-        })
-    })
-  }
+  // updateReservation = (reservation) => {
+  //   console.log(reservation)
+  //   fetch(baseUrl + '/chew/' + reservation._id, {
+  //     method: 'PUT',
+  //     body: JSON.stringify({updated: !reservation.updated}),
+  //     headers: {
+  //       'Content-Type': 'application/json'
+  //     },
+  //   }).then(res => res.json())
+  //   .then(resJson => {
+  //     console.log(resJson)
+  //     const copyReservations = [...this.state.holidays]
+  //     const findIndex = this.state.reservations.findIndex(
+  //       reservation => reservation._id === resJson.data._id)
+  //       copyReservations[findIndex].updated = resJson.data.updated
+  //       console.log(copyReservations[findIndex])
+  //
+  //       this.setState({
+  //         reservations: copyReservations
+  //       })
+  //   })
+  // }
 
 
 
@@ -77,7 +76,7 @@ export default class ReservationForm extends Component {
     console.log(this.state);
     fetch(baseUrl + '/chew', {
       method: 'POST',
-      body: JSON.stringify( {
+      body: JSON.stringify({
         name: this.state.name,
         guests: this.state.guests}),
       headers: {
@@ -85,7 +84,7 @@ export default class ReservationForm extends Component {
       },
     }).then(res => { console.log(res); return res.json()} )
     .then(json => {
-      this.getReservations(json)
+      this.getReservations()
     })
     .then(
       this.setState({
@@ -117,17 +116,17 @@ export default class ReservationForm extends Component {
             onChange={ (event) => this.handleChange(event)}
             value={this.state.name}
             />
-            <hr />
+          <br/>
             <label htmlFor='guests'>Guests: </label>
             <input type='number' id='guests' name='guests'
               onChange={ (event) => this.handleChange(event)}
               value={this.state.guests}
               />
-            <hr />
+              <br/>
             <input type='submit' value='Add Reservation' />
         </form>
         <AllReservations reservations={this.state.reservations} reservationRefresh={this.getReservations}
-            reservationToBeEdited={this.reservationToBeEdited} modalOpen={this.modalOpen} name={this.state.name} guests={this.state.guests}/>
+            reservationToBeEdited={this.state.reservationToBeEdited} modalOpen={this.modalOpen} name={this.state.name} guests={this.state.guests}/>
       </div>
     )
 

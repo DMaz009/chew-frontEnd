@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 
-let baseUrl = "http://localhost:3000"
+let baseUrl = "https://chew-backend.herokuapp.com"
 
 class AllReservations extends Component {
   constructor(props) {
@@ -9,11 +9,13 @@ class AllReservations extends Component {
 
 
     this.state = {
-      reservations: props.reservations,
-      reservationToBeEdited: props.reservationToBeEdited,
-      modalOpen: props.modalOpen,
-      name: props.name,
-      guests: props.guests
+      reservations: this.props.reservations,
+      reservationToBeEdited: this.props.reservationToBeEdited,
+      modalOpen: this.props.modalOpen,
+      name: this.props.name,
+      guests: this.props.guests,
+      modalName: "",
+      modalGuests: ""
     }
   }
 
@@ -22,7 +24,6 @@ class AllReservations extends Component {
     console.log(id)
     fetch(baseUrl + '/chew/' + id, {
       method: 'DELETE',
-      credentials: 'include'
     }).then(res => {
       console.log(res)
       if(res.status === 200) {
@@ -48,7 +49,6 @@ class AllReservations extends Component {
       guests: reservation.guests,
       reservationToBeEdited: reservation
     })
-    console.log(this.props.reservationToBeEdited);
   }
 
 
@@ -80,22 +80,26 @@ class AllReservations extends Component {
   //   }
 
 
-    handleSubmit = (reservation) => {
-      console.log(reservation)
-      fetch(baseUrl + '/chew/' + reservation._id, {
+    handleSubmit = (e) => {
+      e.preventDefault()
+      console.log(e.target.modalName.value)
+      console.log(e.target.modalGuests.value)
+      fetch(baseUrl + '/chew/' + this.state.reservationToBeEdited._id, {
         method: 'PUT',
-        body: JSON.stringify({updated: !reservation.updated}),
+        body: JSON.stringify({
+          name: e.target.modalName.value,
+          guests: e.target.modalGuests.value
+        }),
         headers: {
           'Content-Type': 'application/json'
         },
-        credentials: 'include'
       }).then(res => res.json())
       .then(resJson => {
         console.log(resJson)
         const copyReservations = [...this.props.reservations]
         const findIndex = this.state.reservations.findIndex(
           reservation => reservation._id === resJson.data._id)
-          copyReservations[findIndex].updated = resJson.data.updated
+          copyReservations[findIndex] = resJson.data
           console.log(copyReservations[findIndex])
 
           this.setState({
@@ -110,15 +114,13 @@ class AllReservations extends Component {
 
 
     handleChange = (e) => {
+      console.log(e.target.name)
+      console.log(e.target.value);
       this.setState({
         [e.target.name]: e.target.value,
         // this.state.name: e.target.value
       })
     }
-
-
-
-
 
 
 
@@ -147,10 +149,12 @@ class AllReservations extends Component {
              this.state.modalOpen &&
              <form onSubmit={this.handleSubmit}>
                <label>Name: </label>
-               <input name="name" value={this.props.name}
+               <input name="modalName" placeholder={this.state.reservationToBeEdited.name}
+                 value={this.state.modalName}
                  onChange={this.handleChange} />
                <label>Guests: </label>
-               <input name="guests" value={this.props.guests}
+               <input name="modalGuests" placeholder={this.state.reservationToBeEdited.guests}
+                 value={this.state.modalGuests}
                  onChange={this.handleChange} />
 
                <input type="submit" value="Submit"/>
