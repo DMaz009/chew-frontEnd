@@ -116,13 +116,13 @@ export default class ReservationForm extends Component {
             onChange={ (event) => this.handleChange(event)}
             value={this.state.name}
             />
-            <hr />
+          <br/>
             <label htmlFor='guests'>Guests: </label>
             <input type='number' id='guests' name='guests'
               onChange={ (event) => this.handleChange(event)}
               value={this.state.guests}
               />
-            <hr />
+              <br/>
             <input type='submit' value='Add Reservation' />
         </form>
         <AllReservations reservations={this.state.reservations} reservationRefresh={this.getReservations}
