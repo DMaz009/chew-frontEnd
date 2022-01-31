@@ -31,6 +31,7 @@ We will be specifically using asian themed restaurants for the project.
   EXPRESS 
   ATLAS
   MONGODB
+  MERN STACK
 
 ## FEATURES
 We have created a feature on our app that allows you to make a reservation to a restarant for you and some friends.
