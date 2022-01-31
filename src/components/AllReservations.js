@@ -47,7 +47,7 @@ class AllReservations extends Component {
       guests: reservation.guests,
       reservationToBeEdited: reservation
     })
-    console.log(this.props.reservationToBeEdited);
+    console.log(this.state.reservationToBeEdited);
   }
 
 

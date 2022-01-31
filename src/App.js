@@ -63,9 +63,7 @@ class App extends Component{
 
 
   getRestaurants = () => {
-    fetch('https://chew-backend.herokuapp.com/google', {
-      credentials: "include"
-    })
+    fetch('https://chew-backend.herokuapp.com/google')
     .then(res => {
       if (res.status === 200) {
         return res.json()
