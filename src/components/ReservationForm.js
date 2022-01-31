@@ -126,7 +126,7 @@ export default class ReservationForm extends Component {
             <input type='submit' value='Add Reservation' />
         </form>
         <AllReservations reservations={this.state.reservations} reservationRefresh={this.getReservations}
-            reservationToBeEdited={this.reservationToBeEdited} modalOpen={this.modalOpen} name={this.state.name} guests={this.state.guests}/>
+            reservationToBeEdited={this.state.reservationToBeEdited} modalOpen={this.modalOpen} name={this.state.name} guests={this.state.guests}/>
       </div>
     )
 
