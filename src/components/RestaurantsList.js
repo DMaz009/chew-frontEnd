@@ -9,18 +9,18 @@ class Restaurants extends Component {
       restaurants: props.restaurants,
       baseURL: props.baseURL,
       apiKey: props.apiKey,
-      restaurantName: ''
+      restaurantName: props.restaurantName
     }
 
   }
 
 
-  handleClick = (e) => {
-    e.preventDefault()
-    console.log(e.nativeEvent.srcElement);
+  handleClick = (data) => {
+    // data.preventDefault()
     this.setState({
-      restaurantName: e.nativeEvent.srcElement
+      restaurantName: data.name
     })
+    console.log(data.name);
   }
 
 
@@ -29,15 +29,17 @@ class Restaurants extends Component {
   render() {
     return (
       <div className="restaurant-list">
-
+      
     			{ this.props.restaurants.map((data) => (
-    				<form onClick={this.handleClick} className="data-preview" key={data.place_id}>
+    				<form onClick={() => this.handleClick(data)} className="data-preview" key={data.place_id}>
     					<h5 className="dataName">{data.name}</h5>
     					<p className="data-rating">Rating: {data.rating} / 5</p>
               <p className="data-priceLevel">Price Level: {data.price_level} / 5</p>
     				</form>
     			)) }
 
+          <div>
+          </div>
     	</div>
     )
   }

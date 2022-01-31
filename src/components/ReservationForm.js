@@ -18,7 +18,9 @@ export default class ReservationForm extends Component {
       time: '',
       availability: '',
       reservationToBeEdited: {},
-      modalOpen: false
+      modalOpen: false,
+      reservationToBeEdited: {}
+
     }
   }
 
@@ -68,24 +70,7 @@ export default class ReservationForm extends Component {
     })
   }
 
-  deleteReservation = (id) => {
-    console.log(id)
-    fetch(baseUrl + '/holidays/' + id, {
-      method: 'DELETE',
-      credentials: 'include'
-    }).then(res => {
-      console.log(res)
-      if(res.status === 200) {
-        const findIndex = this.state.reservations.findIndex(
-          reservation => reservation._id === id)
-        const copyReservations = [...this.state.reservations]
-        copyReservations.splice(findIndex, 1)
-        this.setState({
-          reservations: copyReservations
-        })
-      }
-    })
-  }
+
 
   handleSubmit = (event) => {
     event.preventDefault()
@@ -110,17 +95,21 @@ export default class ReservationForm extends Component {
   }
 
   handleChange = (event) => {
-    // console.log(event.target.value)
+    console.log(event.target.value)
     this.setState({
       [event.target.name]: event.target.value
     })
   }
 
+  componentDidMount() {
+    this.getReservations()
+  }
+
+
   render() {
     // console.log(this.state.name)
     return (
       <div>
-        {this.getReservations()}
         <form onSubmit={this.handleSubmit}>
           <h1>New Reservation</h1>
           <label htmlFor='name'>Name: </label>
@@ -137,7 +126,8 @@ export default class ReservationForm extends Component {
             <hr />
             <input type='submit' value='Add Reservation' />
         </form>
-        <AllReservations reservations={this.state.reservations}/>
+        <AllReservations reservations={this.state.reservations} reservationRefresh={this.getReservations}
+            reservationToBeEdited={this.reservationToBeEdited} modalOpen={this.modalOpen} name={this.state.name} guests={this.state.guests}/>
       </div>
     )
 

@@ -9,7 +9,11 @@ class AllReservations extends Component {
 
 
     this.state = {
-      reservations: props.reservations
+      reservations: props.reservations,
+      reservationToBeEdited: props.reservationToBeEdited,
+      modalOpen: props.modalOpen,
+      name: props.name,
+      guests: props.guests
     }
   }
 
@@ -28,9 +32,93 @@ class AllReservations extends Component {
         this.setState({
           reservations: copyReservations
         })
+        this.props.reservationRefresh()
       }
     })
   }
+
+
+
+
+  showEditForm = (reservation) => {
+    console.log(reservation)
+    this.setState({
+      modalOpen: true,
+      name: reservation.name,
+      guests: reservation.guests,
+      reservationToBeEdited: reservation
+    })
+    console.log(this.props.reservationToBeEdited);
+  }
+
+
+
+
+  // handleSubmit = (e) => {
+  //     e.preventDefault()
+  //     fetch(baseUrl + '/chew/' + this.props.reservationToBeEdited._id, {
+  //       method: 'PUT',
+  //       body: JSON.stringify({
+  //         name: e.target.name,
+  //         description: e.target.guests
+  //       }),
+  //       headers: {
+  //         'Content-Type': 'application/json'
+  //       },
+  //       credentials: "include"
+  //     }).then(res => res.json())
+  //     .then(resJson => {
+  //       // console.log(resJson);
+  //       const findIndex = this.props.reservations.findIndex(reservation => reservation._id === resJson.data._id)
+  //       const copyReservations = [...this.props.reservations]
+  //       copyReservations[findIndex] = resJson.data
+  //       this.setState({
+  //         reservations: copyReservations,
+  //         modalOpen: false
+  //       })
+  //     })
+  //   }
+
+
+    handleSubmit = (reservation) => {
+      console.log(reservation)
+      fetch(baseUrl + '/chew/' + reservation._id, {
+        method: 'PUT',
+        body: JSON.stringify({updated: !reservation.updated}),
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        credentials: 'include'
+      }).then(res => res.json())
+      .then(resJson => {
+        console.log(resJson)
+        const copyReservations = [...this.props.reservations]
+        const findIndex = this.state.reservations.findIndex(
+          reservation => reservation._id === resJson.data._id)
+          copyReservations[findIndex].updated = resJson.data.updated
+          console.log(copyReservations[findIndex])
+
+          this.setState({
+            reservations: copyReservations
+          })
+          this.props.reservationRefresh()
+      })
+    }
+
+
+
+
+
+    handleChange = (e) => {
+      this.setState({
+        [e.target.name]: e.target.value,
+        // this.state.name: e.target.value
+      })
+    }
+
+
+
+
 
 
 
@@ -43,14 +131,31 @@ class AllReservations extends Component {
             <hr/>
             { this.props.reservations.map((data) => (
               <div key={data._id}>
-                <h4 className="reservation-name">Name: {data.name}</h4>
-                <h4 className="reservation-guests">Guests: {data.guests}</h4>
-                <button>Edit</button>
+                <label>Name: </label>
+                <input type='text' id='name' name='name' value={data.name} onChange={this.handleChange} />
+
+                <label>Guests: </label>
+                <input name="guests" value={data.guests}  onChange={this.handleChange}/>
+                <br />
+
+                <button onClick={() => this.showEditForm(data)}>Edit</button>
                 <button onClick={() => this.deleteReservation(data._id)}>Delete</button>
                 <hr/>
               </div>
       			)) }
+            {
+             this.state.modalOpen &&
+             <form onSubmit={this.handleSubmit}>
+               <label>Name: </label>
+               <input name="name" value={this.props.name}
+                 onChange={this.handleChange} />
+               <label>Name: </label>
+               <input name="guests" value={this.props.guests}
+                 onChange={this.handleChange} />
 
+               <input type="submit" value="Submit"/>
+             </form>
+           }
     	</div>
     )
   }
