@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 
-let baseUrl = "http://localhost:3000"
+let baseUrl = "https://chew-backend.herokuapp.com"
 
 class AllReservations extends Component {
   constructor(props) {
@@ -22,7 +22,6 @@ class AllReservations extends Component {
     console.log(id)
     fetch(baseUrl + '/chew/' + id, {
       method: 'DELETE',
-      credentials: 'include'
     }).then(res => {
       console.log(res)
       if(res.status === 200) {
@@ -88,7 +87,6 @@ class AllReservations extends Component {
         headers: {
           'Content-Type': 'application/json'
         },
-        credentials: 'include'
       }).then(res => res.json())
       .then(resJson => {
         console.log(resJson)
