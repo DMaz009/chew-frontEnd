@@ -80,12 +80,16 @@ class AllReservations extends Component {
   //   }
 
 
-    handleSubmit = (e, reservation) => {
+    handleSubmit = (e) => {
       e.preventDefault()
-      console.log(reservation)
-      fetch(baseUrl + '/chew/' + reservation._id, {
+      console.log(e.target.modalName.value)
+      console.log(e.target.modalGuests.value)
+      fetch(baseUrl + '/chew/' + this.state.reservationToBeEdited._id, {
         method: 'PUT',
-        body: JSON.stringify({updated: !reservation.updated}),
+        body: JSON.stringify({
+          name: e.target.modalName.value,
+          guests: e.target.modalGuests.value
+        }),
         headers: {
           'Content-Type': 'application/json'
         },
@@ -95,7 +99,7 @@ class AllReservations extends Component {
         const copyReservations = [...this.props.reservations]
         const findIndex = this.state.reservations.findIndex(
           reservation => reservation._id === resJson.data._id)
-          copyReservations[findIndex].updated = resJson.data.updated
+          copyReservations[findIndex] = resJson.data
           console.log(copyReservations[findIndex])
 
           this.setState({
@@ -149,7 +153,7 @@ class AllReservations extends Component {
                  value={this.state.modalName}
                  onChange={this.handleChange} />
                <label>Guests: </label>
-               <input name="modalGuests" placeholder={this.state.reservationToBeEdited.name}
+               <input name="modalGuests" placeholder={this.state.reservationToBeEdited.guests}
                  value={this.state.modalGuests}
                  onChange={this.handleChange} />
 
